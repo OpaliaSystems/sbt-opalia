@@ -1,0 +1,38 @@
+= sbt-opalia
+
+This is a sbt plugin used in local projects. It based on https://github.com/sbt/sbt-osgi[sbt-osgi] and
+https://github.com/sbt/sbt-multi-jvm[sbt-multi-jvm] with the aim to add some basic settings to both plugins.
+
+Download new versions from the Git repository https://github.com/OpaliaSystems/sbt-opalia.
+
+=== Usage in other SBT projects
+
+Download this SBT project, change to the project directory and enter the following command:
+
+[source,bash]
+----
+sbt publishLocal
+----
+
+Now this plugin can be used in your local SBT projects.
+
+[source,scala]
+----
+addSbtPlugin("systems.opalia" % "sbt-opalia" % "<VERSION>")
+----
+
+=== License
+
+Copyright (c) 2015 Eric Löffler
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+_http://www.apache.org/licenses/LICENSE-2.0_
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
