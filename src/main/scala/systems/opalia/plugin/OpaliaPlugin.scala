@@ -83,9 +83,9 @@ object OpaliaPlugin
 
     def bundleSettings: Seq[Setting[_]] = {
 
-      val javaVersion = System.getProperty("java.specification.version")
-
       SbtOsgi.defaultOsgiSettings ++ osgiSettings ++ Seq(
+
+        exportJars := true,
 
         autoScalaLibrary := false, // exclude scala-library from dependencies
 
@@ -95,19 +95,13 @@ object OpaliaPlugin
 
         OsgiKeys.bundleVersion := version.value,
 
-        OsgiKeys.requireCapability := s"""osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=$javaVersion))"""",
-
         OsgiKeys.privatePackage := Seq(),
 
-        OsgiKeys.importPackage := Seq("org.osgi.framework"),
+        OsgiKeys.importPackage := Seq("org.osgi.framework.*"),
 
         OsgiKeys.exportPackage := Seq(),
 
         OsgiKeys.embeddedJars := dependencyClasspath.in(Runtime).value.map(_.data).filter(_.isFile),
-
-        libraryDependencies ++= Seq(
-          "org.osgi" % "org.osgi.core" % "6.0.0" % "provided"
-        ),
 
         autoImport.bundle := {
 
