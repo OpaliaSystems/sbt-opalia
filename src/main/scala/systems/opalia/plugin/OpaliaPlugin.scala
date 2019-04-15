@@ -79,8 +79,6 @@ object OpaliaPlugin
 
   object autoImport {
 
-    val bundle = inputKey[Unit]("Create and deploy bundles.")
-
     def bundleSettings: Seq[Setting[_]] = {
 
       SbtOsgi.defaultOsgiSettings ++ osgiSettings ++ Seq(
@@ -101,16 +99,7 @@ object OpaliaPlugin
 
         OsgiKeys.exportPackage := Seq(),
 
-        OsgiKeys.embeddedJars := dependencyClasspath.in(Runtime).value.map(_.data).filter(_.isFile),
-
-        autoImport.bundle := {
-
-          val bundleBase = complete.DefaultParsers.fileParser(new File(System.getProperty("user.dir"))).parsed
-          val source = OsgiKeys.bundle.value.toPath.toFile
-          val target = bundleBase / source.getName
-
-          IO.copyFile(source, target)
-        }
+        OsgiKeys.embeddedJars := dependencyClasspath.in(Runtime).value.map(_.data).filter(_.isFile)
       )
     }
   }
