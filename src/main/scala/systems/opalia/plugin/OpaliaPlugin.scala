@@ -20,9 +20,11 @@ object OpaliaPlugin
     Seq(
 
       resolvers ++= Seq(
-        Resolver.typesafeRepo("maven-releases"),
-        Resolver.sonatypeRepo("releases"),
-        Resolver.sonatypeRepo("snapshots")
+        Resolver.mavenLocal,
+        Resolver.jcenterRepo,
+        Resolver.bintrayRepo("typesafe", "maven-releases"),
+        Opts.resolver.sonatypeReleases,
+        Opts.resolver.sonatypeSnapshots
       ),
 
       scalacOptions ++= Seq(
