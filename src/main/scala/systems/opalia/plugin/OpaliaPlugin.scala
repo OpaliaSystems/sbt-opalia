@@ -101,7 +101,7 @@ object OpaliaPlugin
 
         OsgiKeys.exportPackage := Seq(),
 
-        OsgiKeys.embeddedJars := dependencyClasspath.in(Runtime).value.map(_.data).filter(_.isFile)
+        OsgiKeys.embeddedJars := externalDependencyClasspath.in(Runtime).value.map(_.data).filter(_.isFile)
       )
     }
   }
