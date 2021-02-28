@@ -15,6 +15,6 @@ version := "0.1.0"
 
 sbtPlugin := true
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-osgi" % "0.9.5")
+addSbtPlugin("com.typesafe.sbt" % "sbt-osgi" % "0.9.6")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-multi-jvm" % "0.4.0")
