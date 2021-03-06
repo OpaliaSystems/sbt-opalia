@@ -11,7 +11,7 @@ description := "An sbt plugin for building OSGi bundles and supporting different
 
 homepage := Some(url("https://github.com/OpaliaSystems/sbt-opalia"))
 
-version := "0.1.0"
+version := "1.0.0"
 
 sbtPlugin := true
 
